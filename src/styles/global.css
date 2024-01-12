@@ -19,3 +19,11 @@
 body {
   font-family: var(--font-inter-regular);
 }
+
+div[aria-label="driver-marker"] {
+  transition: all .4s ease;
+}
+
+div[aria-label="customer-marker"] {
+  transition: all .4s ease;
+}

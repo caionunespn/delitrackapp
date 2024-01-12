@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DELITRACK
 
-## Getting Started
+Bem-vindo ao projeto DELITRACK - Rastreador de Entrega! Este projeto foi desenvolvido como uma aplicação de estudo para aprimorar habilidades em ASP.NET Core. Utilizei as tecnologias .NET 8, ASP.NET Core, Entity Framework, SignalR e Next.js para o frontend.
 
-First, run the development server:
+## Funcionalidades
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O backend oferece as seguintes funcionalidades:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Motoristas
+- **Criar Motorista:** Registre novos motoristas no sistema.
+- **Listar Motoristas:** Obtenha uma lista de todos os motoristas cadastrados.
+- **Atualizar Motorista:** Modifique informações de um motorista existente.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Clientes
+- **Criar Cliente:** Cadastre novos clientes no sistema.
+- **Listar Clientes:** Visualize uma lista de todos os clientes cadastrados.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Lojas
+- **Criar Loja:** Adicione novas lojas ao sistema.
+- **Listar Lojas:** Veja todas as lojas disponíveis.
 
-## Learn More
+### Pedidos
+- **Criar Pedido:** Realize pedidos associados a um cliente e uma loja.
+- **Listar Pedidos:** Obtenha uma lista de todos os pedidos efetuados.
 
-To learn more about Next.js, take a look at the following resources:
+### Rastreamento em Tempo Real
+- Utilização do SignalR para comunicação em tempo real.
+- Um WebSocket que comunica o rastreamento do motorista para o cliente no frontend.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tecnologias Utilizadas
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- [**Backend:**](https://github.com/caionunespn/delitrack)
+  - .NET 8 com ASP.NET Core
+  - Entity Framework para persistência de dados
+  - SignalR para comunicação em tempo real
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [**Frontend:**](https://github.com/caionunespn/delitrackapp)
+  - Next.js para a construção da interface do usuário
+  - Google Maps para a apresentação interativa do mapa

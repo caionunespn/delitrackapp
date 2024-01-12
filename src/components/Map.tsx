@@ -10,26 +10,77 @@ interface MapProps extends google.maps.MapOptions {
   onIdle?: (map: google.maps.Map) => void;
 }
 
+const mapStyles = [
+  {
+    "featureType": "administrative.land_parcel",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.business",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  }
+];
+
 export default function Map(props: MapProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [map, setMap] = useState<google.maps.Map>();
 
-  useEffect(() => {
-    if (ref.current && !map) {
-      setMap(new window.google.maps.Map(ref.current, {
+  const openMap = (node: HTMLDivElement | null) => {
+    if (node && !map) {
+      setMap(new window.google.maps.Map(node, {
         center: props.defaultCenter,
         zoom: props.defaultZoom,
         zoomControl: false,
         disableDefaultUI: true,
+        styles: mapStyles
       }));
     }
-  }, [ref, map]);
+  }
 
   return (
     <MapWrapper>
+      <div className="w-full h-[70vh] md:h-[60vh]">
         <div
-          ref={ref}
-          style={props.style ? props.style : { width: "100%", height: "450px" }}
+          ref={(node) => {
+            openMap(node);
+          }}
+          style={{width: '100%', height: '100%'}}
         />
         {React.Children.map(props.children, (child) => {
           if (React.isValidElement(child)) {
@@ -37,6 +88,7 @@ export default function Map(props: MapProps) {
             return React.cloneElement(child, { map });
           }
         })}
+      </div>
     </MapWrapper>
   );
 };
